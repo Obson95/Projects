@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "RadioRTNE",
+    "slug": "RadioRTNE",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+
+    "infoPlist": {
+      
+      "UIBackgroundModes": [
+        "audio"
+      ]},
+       "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c36b404b-2e08-4e9a-94f8-d5aaf55e08c0"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c36b404b-2e08-4e9a-94f8-d5aaf55e08c0"
+    }
+  }
+}
