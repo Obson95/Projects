@@ -7,6 +7,7 @@ import HomeScreen from './HomeScreen';
 import AudioPlayer from './AudioPlayer';
 import VideoPlayer from './VideoPlayer';
 
+
 const Tab = createBottomTabNavigator();
 
 export default function BottomNavigator() {
@@ -34,9 +35,11 @@ export default function BottomNavigator() {
         ]
       })}
     >
+
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Radio" component={AudioPlayer} />
       <Tab.Screen name="VideoPlayer" component={VideoPlayer} />
+     
     </Tab.Navigator>
   );
 }

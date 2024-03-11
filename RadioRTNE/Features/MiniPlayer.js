@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const MiniPlayer = ({ isPlaying, onPause, onClose }) => {
+const MiniPlayer = ({ isPlaying, onPause, onClose, onTogglePlayPause, volume, onVolumeChange, liveIndicatorColor }) => {
   const handlePlayPause = () => {
-    onPause(); // Call the onPause function from props
+    if (isPlaying) {
+      onPause();
+    } else {
+      onTogglePlayPause(); // Play the audio when the button is pressed
+    }
   };
 
   const handleClose = () => {
-    onClose(); // Call the onClose function from props
+    onTogglePlayPause();
+    onClose();
   };
 
   return (
@@ -16,6 +21,7 @@ const MiniPlayer = ({ isPlaying, onPause, onClose }) => {
       <TouchableOpacity onPress={handlePlayPause} style={styles.button}>
         <Ionicons name={isPlaying ? 'pause' : 'play'} size={24} color="black" />
       </TouchableOpacity>
+      <Text style={[styles.liveText, { color: liveIndicatorColor }]}>Live</Text>
       <TouchableOpacity onPress={handleClose} style={styles.button}>
         <Ionicons name="close" size={24} color="black" />
       </TouchableOpacity>
@@ -27,13 +33,18 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     backgroundColor: 'white',
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
   button: {
     marginHorizontal: 10,
+  },
+  liveText: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginTop: 10,
   },
 });
 

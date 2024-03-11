@@ -5,7 +5,7 @@ import HomeScreen from './Features/HomeScreen';
 import AudioPlayer from './Features/AudioPlayer';
 import BottomNavigator from './Features/BottomNavigator';
 import VideoPlayer from './Features/VideoPlayer';
-import MiniPlayer from './Features/MiniPlayer'; // Import the MinimizedPlayer component
+import MiniPlayer from './Features/MiniPlayer'; 
 
 const Stack = createStackNavigator();
 
@@ -17,9 +17,10 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Radio" component={AudioPlayer} />
         <Stack.Screen name="VideoPlayer" component={VideoPlayer} />
-   
-        <Stack.Screen name="MiniPlayer" component={MiniPlayer} options={{ gestureEnabled: false }} />
+        {/* Render MiniPlayer as a screen within the stack navigator */}
+       
       </Stack.Navigator>
+      <MiniPlayer   />
     </NavigationContainer>
   );
 }

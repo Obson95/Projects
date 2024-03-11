@@ -111,6 +111,21 @@ export default function App() {
     }
   };
 
+  const handleClose = async () => {
+    if (sound && isPlaying) {
+      await sound.pauseAsync();
+    }
+    setShowMiniPlayer(false);
+  };
+
+  const handleTogglePlayPause = () => {
+    if (isPlaying) {
+      pauseSound();
+    } else {
+      playSound();
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -138,13 +153,17 @@ export default function App() {
           />
           <Icon name="volume-up" size={24} color="black" />
         </View>
-
-        <Text style={[styles.liveText, { color: liveIndicatorColor }]}>Live</Text>
         
       </View>
    
-      {showMiniPlayer && <MiniPlayer isPlaying={isPlaying} onPause={pauseSound} onClose={() => setShowMiniPlayer(false)} />}
-
+      {showMiniPlayer && 
+        <MiniPlayer 
+        isPlaying={isPlaying} 
+        onPause={pauseSound} 
+        onClose={handleClose} 
+        onTogglePlayPause={handleTogglePlayPause}
+        liveIndicatorColor={liveIndicatorColor} />}
+              
     </View>
    
   );
