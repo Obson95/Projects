@@ -1,23 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import AudioPlayer from './AudioPlayer';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './Features/HomeScreen';
+import AudioPlayer from './Features/AudioPlayer';
+import BottomNavigator from './Features/BottomNavigator';
+import VideoPlayer from './Features/VideoPlayer';
+import MiniPlayer from './Features/MiniPlayer'; // Import the MinimizedPlayer component
 
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app959!</Text>
-      <StatusBar style="auto" />
-      <AudioPlayer/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="BottomNavigator" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="BottomNavigator" component={BottomNavigator} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Radio" component={AudioPlayer} />
+        <Stack.Screen name="VideoPlayer" component={VideoPlayer} />
+   
+        <Stack.Screen name="MiniPlayer" component={MiniPlayer} options={{ gestureEnabled: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
