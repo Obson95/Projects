@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { View, Image, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -126,6 +127,8 @@ export default function App() {
     }
   };
 
+
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -156,13 +159,13 @@ export default function App() {
         
       </View>
    
-      {showMiniPlayer && 
+      {/*showMiniPlayer && 
         <MiniPlayer 
         isPlaying={isPlaying} 
         onPause={pauseSound} 
         onClose={handleClose} 
         onTogglePlayPause={handleTogglePlayPause}
-        liveIndicatorColor={liveIndicatorColor} />}
+  liveIndicatorColor={liveIndicatorColor} />*/}
               
     </View>
    
@@ -171,7 +174,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
@@ -228,3 +231,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+

@@ -3,7 +3,8 @@ import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const MiniPlayer = ({ isPlaying, onPause, onClose, onTogglePlayPause, volume, onVolumeChange, liveIndicatorColor }) => {
-  const handlePlayPause = () => {
+ 
+   const  handlePlayPause = () => {
     if (isPlaying) {
       onPause();
     } else {
@@ -49,3 +50,5 @@ const styles = StyleSheet.create({
 });
 
 export default MiniPlayer;
+
+
